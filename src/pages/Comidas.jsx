@@ -49,7 +49,6 @@ let Bebidas = React.createClass({
   },
 
   render() {
-    console.log('wat');
     return (
       <Shelf {...config} />
     );
