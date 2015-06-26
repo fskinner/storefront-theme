@@ -34,6 +34,8 @@ let ShelfItem = React.createClass({
         <div className="full-length ds-shelf-item-image-container">
           <Img className="full-length ds-shelf-item-image"
             src={imageSrc}
+            width={200}
+            height={200}
             accountName={this.props.accountName}
             alt="" title=""/>
         </div>

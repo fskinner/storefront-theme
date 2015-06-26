@@ -3,7 +3,9 @@ import React from 'react';
 let Img = React.createClass({
   propTypes: {
     src: React.PropTypes.string.isRequired,
-    accountName: React.PropTypes.string.isRequired
+    accountName: React.PropTypes.string.isRequired,
+    width: React.PropTypes.number.isRequired,
+    height: React.PropTypes.number.isRequired
   },
 
   onMouseOver() {
