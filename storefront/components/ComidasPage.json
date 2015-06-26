@@ -1,0 +1,15 @@
+{
+  "route": {
+    "name": "comidas",
+    "path": "/comidas"
+  },
+  "model": {
+    "name": "products@vtex.flux",
+    "params": {
+      "category": "menu/comidas"
+    }
+  },
+  "assets": [
+    "storefront-theme.js"
+  ]
+}

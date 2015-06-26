@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="{{ culture.code }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="language" content="{{ culture.language }}">
+  <meta name="country" content="{{ culture.country }}">
+  <meta name="currency" content="{{ culture.currency }}">
+  <title>{{ account.name }}</title>
+  <link rel="shortcut icon" href="/assets/@vtex.dreamstore-theme/favicon.ico">
+  {% lib 'twitter-bootstrap' 'css/bootstrap.min.css' %}
+  {% lib 'font-awesome' 'css/font-awesome.min.css' %}
+  {% dump styles %}
+  <!--[if lt IE 9]>
+    <script>
+      (function(){
+        var ef = function(){};
+        window.console = window.console || {log:ef,warn:ef,error:ef,dir:ef};
+      }());
+    </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv-printshiv.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/3.4.0/es5-shim.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/3.4.0/es5-sham.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div id="storefront-container"></div>
+  <script src="https://fb.me/react-with-addons-0.13.3.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-router/0.13.3/ReactRouter.js"></script>
+  {% lib 'jquery' 'jquery.min.js' %}
+
+  {% script '//io.vtex.com.br/front-libs/intl/0.1.4/Intl.min.js' %}
+  {% script '//io.vtex.com.br/front-libs/react-intl/1.2.0/react-intl.min.js' %}
+
+  {% capture intlLocaleUrl %}//io.vtex.com.br/front-libs/intl/0.1.4/locale-data/jsonp/{{ culture.language | split: "-" | first }}.js{% endcapture %}
+  {% script intlLocaleUrl %}
+
+  {% capture reactLocaleUrl %}//io.vtex.com.br/front-libs/react-intl/1.2.0/locale-data/{{ culture.language | split: "-" | first }}.js{% endcapture %}
+  {% script reactLocaleUrl %}
+
+  {% capture storefrontReactUrl %}//{{account.name}}.beta.myvtex.com/assets/@vtex.storefront-react/storefront-react.js{% endcapture %}
+  {% script storefrontReactUrl %}
+
+  {% dump scripts %}
+
+  <script>
+    // TODO this should be a configuration editable from the admin.
+    // Also, it should be conditional on user's locale.
+    window.storefront.i18n = {
+      "searchByPlaceholder": "Busque por produtos, categorias ou marcas",
+      "loading": "Carregando",
+      "brands": "Marcas"
+    };
+    window.storefront.user = {
+      roles: {
+        admin: {{ user.roles.admin }},
+        customer: {{ user.roles.customer }},
+        developer: {{ user.roles.developer }}
+      }
+    };
+    window.storefront.ShopStore = {
+      locale: "{{ culture.code }}",
+      language: "{{ culture.language }}",
+      countryCode: "{{ culture.country }}",
+      currency: "{{ culture.currency.code }}",
+      accountName: "{{ account.name }}"
+    };
+    window.storefront.init(); // boom!
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "route": {
+    "name": "bebidas",
+    "path": "/bebidas"
+  },
+  "model": {
+    "name": "products@vtex.flux",
+    "params": {
+      "category": "menu/bebidas"
+    }
+  },
+  "assets": [
+    "storefront-theme.js"
+  ]
+}

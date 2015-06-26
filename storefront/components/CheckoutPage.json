@@ -1,0 +1,9 @@
+{
+  "route": {
+    "name": "checkout",
+    "path": "/checkout"
+  },
+  "assets": [
+    "storefront-theme.js"
+  ]
+}

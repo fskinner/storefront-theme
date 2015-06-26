@@ -1,0 +1,15 @@
+{
+  "route": {
+    "name": "product",
+    "path": "/:product/p"
+  },
+  "model": {
+    "name": "product@vtex.flux",
+    "params": {
+      "product": "{{ route.params.product }}"
+    }
+  },
+  "assets": [
+    "storefront-theme.js"
+  ]
+}

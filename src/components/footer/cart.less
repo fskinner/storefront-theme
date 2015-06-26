@@ -1,0 +1,90 @@
+.ds-cart {
+  padding: 4px;
+  position: relative;
+  margin: 11px 10px 11px 0;
+  border-radius: 5px;
+  display: inline-block;
+
+  &:hover {
+    background: #666;
+  }
+  .ds-cart-name {
+    .fa {
+      color: #fff;
+      font-size: 32px;
+    }
+  }
+}
+
+.ds-minicart-qty-input {
+  input {
+    border: 0;
+    border-bottom: 1px dashed #ccc;
+    outline: 0;
+    text-align: center;
+    width: 35px;
+    display: inline-block;
+  }
+}
+
+.ds-cart-count {
+  position: absolute;
+  top: -1px;
+  right: -8px;
+  color: #333;
+  background: yellow;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  border-radius: 50%;
+  text-align: center;
+  border: 1px solid #333;
+  padding: 0;
+  line-height: 18px;
+}
+
+.ds-minicart {
+  position: absolute;
+  right: 0;
+  display: none;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  border-top-right-radius: 0;
+  padding: 20px 0;
+  width: 400px;
+  z-index: 9999;
+}
+
+.ds-minicart-active {
+  .ds-cart-name {
+    background: #666;
+  }
+  .ds-minicart {
+    display: block;
+  }
+}
+
+.ds-minicart-item {
+  margin-bottom: 20px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.ds-minicart-total {
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+.ds-minicart-total span {
+  margin-right: 8px;
+}
+
+.ds-minicart-remove-item {
+  display: block;
+  cursor: pointer;
+  color: #ccc;
+}

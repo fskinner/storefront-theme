@@ -1,0 +1,9 @@
+{
+  "route": {
+    "name": "success",
+    "path": "/success"
+  },
+  "assets": [
+    "storefront-theme.js"
+  ]
+}
