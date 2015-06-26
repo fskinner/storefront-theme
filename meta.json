@@ -1,11 +1,11 @@
 {
   "name": "storefront-theme",
   "title": "Default Storefront theme",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "owner": "vtex",
   "dependencies": {
-    "vtex.storefront-flux": "0.1.x",
-    "vtex.storefront-react": "0.2.x"
+    "vtex.storefront-flux": "0.1.0",
+    "vtex.storefront-react": "0.2.0"
   },
   "schemas": {
     "storefront": 1

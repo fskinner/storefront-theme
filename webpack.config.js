@@ -1,7 +1,8 @@
 var webpack = require('webpack');
 var path = require('path');
 var node_modules_dir = path.join(__dirname, 'node_modules');
-var publicPath = '/assets/@vtex.storefront-theme/';
+var pkg = require('./package.json');
+var publicPath = '/assets/@vtex.' + pkg.name + '/';
 
 var config = {
   devtool: 'sourcemap',
@@ -9,7 +10,7 @@ var config = {
   entry: [
     'webpack-dev-server/client?http://0.0.0.0:3000',
     'webpack/hot/only-dev-server',
-    './src/storefront-theme.jsx'
+    './src/' + pkg.name + '.jsx'
   ],
 
   externals: {
@@ -33,7 +34,7 @@ var config = {
   output: {
     path: path.resolve(__dirname, './storefront/assets/'),
     publicPath: publicPath,
-    filename: 'storefront-theme.js'
+    filename: pkg.name + '.js'
   },
 
   jshint: {
