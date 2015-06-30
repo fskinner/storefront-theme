@@ -17,7 +17,7 @@
     "react-hot-loader": "^1.2.7",
     "style-loader": "^0.9.0",
     "url-loader": "^0.5.5",
-    "vtex": "^0.2.3",
+    "vtex": "^0.4.0",
     "webpack": "^1.8.11",
     "webpack-dev-server": "^1.8.0"
   },
