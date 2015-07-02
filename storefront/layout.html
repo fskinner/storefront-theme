@@ -42,6 +42,9 @@
   {% capture storefrontReactUrl %}//{{account.name}}.beta.myvtex.com/assets/@vtex.storefront-react/storefront-react.js{% endcapture %}
   {% script storefrontReactUrl %}
 
+  {% capture storefrontFluxUrl %}//{{account.name}}.beta.myvtex.com/assets/@vtex.storefront-flux/storefront-flux.js{% endcapture %}
+  {% script storefrontFluxUrl %}
+
   {% dump scripts %}
 
   <script>
