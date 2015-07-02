@@ -39,11 +39,7 @@
   {% capture reactLocaleUrl %}//io.vtex.com.br/front-libs/react-intl/1.2.0/locale-data/{{ culture.language | split: "-" | first }}.js{% endcapture %}
   {% script reactLocaleUrl %}
 
-  {% capture storefrontReactUrl %}//{{account.name}}.beta.myvtex.com/assets/@vtex.storefront-react/storefront-react.js{% endcapture %}
-  {% script storefrontReactUrl %}
-
-  {% capture storefrontFluxUrl %}//{{account.name}}.beta.myvtex.com/assets/@vtex.storefront-flux/storefront-flux.js{% endcapture %}
-  {% script storefrontFluxUrl %}
+  {% script 'storefront-react.js@vtex.storefront-react' %}
 
   {% dump scripts %}
 
