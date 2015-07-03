@@ -11,16 +11,13 @@ let config1 = {
   }
 };
 
+const stores = [
+  storefront.flux.stores.SearchStore,
+  storefront.flux.stores.ShopStore
+];
+
 let Home = React.createClass({
   mixins: [ PureRenderMixin ],
-  statics: {
-    getStores() {
-      return [
-        storefront.flux.stores.SearchStore,
-        storefront.flux.stores.ShopStore
-      ];
-    }
-  },
 
   componentDidMount() {
     const accountName = this.props.ShopStore.get('accountName');
@@ -41,4 +38,4 @@ let Home = React.createClass({
   }
 });
 
-export default connectToStores(Home);
+export default connectToStores(stores)(Home);

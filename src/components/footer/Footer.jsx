@@ -5,16 +5,13 @@ import { Navigation, State, Link } from 'react-router';
 import { FormattedNumber } from 'react-intl';
 import { Button } from 'react-bootstrap';
 
+const stores = [
+  storefront.flux.stores.CartStore,
+  storefront.flux.stores.ShopStore
+];
+
 let Footer = React.createClass({
   mixins: [ Navigation, State ],
-  statics: {
-    getStores() {
-      return [
-        storefront.flux.stores.CartStore,
-        storefront.flux.stores.ShopStore
-      ];
-    }
-  },
 
   render() {
     let currency = this.props.ShopStore.get('currency');
@@ -52,4 +49,4 @@ let Footer = React.createClass({
 
 });
 
-export default connectToStores(Footer);
+export default connectToStores(stores)(Footer);

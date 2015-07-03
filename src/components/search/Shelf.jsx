@@ -4,18 +4,14 @@ import connectToStores from 'utils/connectToStores';
 import ShelfItem from './ShelfItem';
 import compact from 'lodash/array/compact';
 
-let Shelf = React.createClass({
-  statics: {
-    getStores() {
-      return [
-        storefront.flux.stores.ProductStore,
-        storefront.flux.stores.SearchStore,
-        storefront.flux.stores.ShopStore,
-        storefront.flux.stores.CartStore
-      ];
-    }
-  },
+const stores = [
+  storefront.flux.stores.ProductStore,
+  storefront.flux.stores.SearchStore,
+  storefront.flux.stores.ShopStore,
+  storefront.flux.stores.CartStore
+];
 
+let Shelf = React.createClass({
   getSearch() {
     return this.props.SearchStore.get(this.props.search.id);
   },
@@ -52,4 +48,4 @@ let Shelf = React.createClass({
   }
 });
 
-export default connectToStores(Shelf);
+export default connectToStores(stores)(Shelf);

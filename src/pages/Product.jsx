@@ -15,17 +15,14 @@ import ProductSpecification from 'components/product/Specification';
 import Img from 'components/Img';
 import { PureRenderMixin } from 'react/lib/ReactComponentWithPureRenderMixin';
 
+const stores = [
+  storefront.flux.stores.ProductStore,
+  storefront.flux.stores.ShopStore,
+  storefront.flux.stores.CartStore
+];
+
 let Product = React.createClass({
   mixins: [ PureRenderMixin ],
-  statics: {
-    getStores() {
-      return [
-        storefront.flux.stores.ProductStore,
-        storefront.flux.stores.ShopStore,
-        storefront.flux.stores.CartStore
-      ];
-    }
-  },
 
   getProduct() {
     const productSlug = this.props.params.product;
@@ -115,4 +112,4 @@ let Product = React.createClass({
   }
 });
 
-export default connectToStores(Product);
+export default connectToStores(stores)(Product);
