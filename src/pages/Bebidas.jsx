@@ -1,3 +1,4 @@
+import storefront from 'storefront';
 import React from 'react';
 import connectToStores from '../utils/connectToStores.js';
 import Shelf from '../components/search/Shelf';
@@ -23,9 +24,7 @@ let Bebidas = React.createClass({
   },
 
   requestSearch(props = this.props) {
-    const search = props.SearchStore.get(config.search.id);
     const accountName = props.ShopStore.get('accountName');
-    const searchInput = props.params.search;
     // TODO cache results for every search
     config.search.accountName = accountName;
     storefront.flux.actions.SearchActions.requestSearch(config.search);

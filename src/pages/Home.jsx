@@ -1,5 +1,5 @@
-import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
+import storefront from 'storefront';
+import React from 'react';
 import connectToStores from '../utils/connectToStores.js';
 import Shelf from '../components/search/Shelf';
 import { PureRenderMixin } from 'react/lib/ReactComponentWithPureRenderMixin';
@@ -15,7 +15,7 @@ let config2 = {
   title: 'Bebidas',
   search: {
     id: 'home-shelf-2',
-    category: 'menu/bebidas',
+    category: 'menu/bebidas'
   }
 };
 

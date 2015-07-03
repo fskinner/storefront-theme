@@ -2,7 +2,6 @@ import React from 'react';
 
 let ProductShare = React.createClass({
   render() {
-    let product = this.props.product;
     return (
       <div className="ds-product-social-share">
         <a className="ds-product-social-share-email" href="#" title="Compartilhar por e-mail">Compartilhar</a>&nbsp;

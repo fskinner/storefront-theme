@@ -1,11 +1,11 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import storefront from 'storefront';
 import connectToStores from 'utils/connectToStores';
-import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import DocumentTitle from 'react-document-title';
 import { RouteHandler, State } from 'react-router';
 import Header from './header/Header';
 import Footer from './footer/Footer';
-import { IntlMixin } from "react-intl";
+import { IntlMixin } from 'react-intl';
 
 let App = React.createClass({
   mixins: [ IntlMixin, State ],
@@ -22,8 +22,7 @@ let App = React.createClass({
   getHandlerKey: function () {
     var childName = this.getRoutes()[0].name;
     var id = this.getParams().id;
-    var key = childName+id;
-    return key;
+    return childName + id;
   },
 
   componentWillMount() {

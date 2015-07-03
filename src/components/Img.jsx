@@ -8,20 +8,22 @@ let Img = React.createClass({
     height: React.PropTypes.number.isRequired
   },
 
+  getBaseUrl({ accountName }) {
+    return `http://${accountName}.vteximg.com.br`;
+  },
+
   onMouseOver() {
     if (this.props.prefetchOnHover) {
-      const baseUrl = "http://"+this.props.accountName+".vteximg.com.br";
       let path = this.props.src.replace('#width#', 490).replace('#height#', 490);
-      path = baseUrl + path;
+      path = this.getBaseUrl(this.props) + path;
       const prefetchImage = new Image();
       prefetchImage.src = path;
     }
   },
 
   render() {
-    let baseUrl = "http://"+this.props.accountName+".vteximg.com.br";
     let path = this.props.src.replace('#width#', this.props.width).replace('#height#', this.props.width);
-    path = baseUrl + path;
+    path = this.getBaseUrl(this.props) + path;
 
     return (
       <img

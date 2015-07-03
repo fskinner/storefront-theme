@@ -1,8 +1,7 @@
-import React, { PropTypes } from 'react';
+import storefront from 'storefront';
+import React from 'react';
 import connectToStores from '../../utils/connectToStores';
 import ShelfItem from './ShelfItem';
-import _matches from 'lodash/utility/matches';
-import { PureRenderMixin } from 'react/lib/ReactComponentWithPureRenderMixin';
 
 let Shelf = React.createClass({
   statics: {

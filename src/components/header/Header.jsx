@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Style from './header.less';
 import { Navbar, Nav, DropdownButton, MenuItem } from 'react-bootstrap';
 
 let Header = React.createClass({

@@ -1,7 +1,7 @@
+import storefront from 'storefront';
 import React from 'react';
 import connectToStores from 'utils/connectToStores.js';
 import { Navigation, State, Link } from 'react-router';
-import Style from './footer.less';
 import { FormattedNumber } from 'react-intl';
 import { Button } from 'react-bootstrap';
 

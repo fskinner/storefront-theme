@@ -1,9 +1,7 @@
+import storefront from 'storefront';
 import React from 'react';
-
 import Img from '../Img';
-import { Link } from 'react-router';
 import { FormattedNumber } from 'react-intl';
-import shelfItemCSS from './shelfItem.less';
 import { Button } from 'react-bootstrap';
 
 let ShelfItem = React.createClass({
@@ -23,8 +21,6 @@ let ShelfItem = React.createClass({
   render() {
     let product = this.props.product || '';
     let name = product.name;
-    let slug = product.slug;
-    let brand = product.brand.name;
     let sampleProduct = product.skus[0];
     let price = sampleProduct.offers[0].price;
     let imageSrc = sampleProduct.images[0].src;

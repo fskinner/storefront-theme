@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import storefront from 'storefront';
+import React from 'react';
 import connectToStores from 'utils/connectToStores.js';
 
 import ProductTitle from 'components/product/Title';
@@ -80,7 +81,7 @@ let Product = React.createClass({
           <div className="ds-product-main-info col-md-6">
             <ProductTitle product={product} />
 
-            { product.skus.size == 1 ?
+            { product.skus.size === 1 ?
               <div>
                 <ProductPrice product={product} currency={ShopStore.get('currency')} />
                 <ProductStock product={product} />

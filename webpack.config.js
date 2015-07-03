@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
-var node_modules_dir = path.join(__dirname, 'node_modules');
+var nodeModulesDir = path.join(__dirname, 'node_modules');
 var pkg = require('./package.json');
 var publicPath = '/assets/@vtex.' + pkg.name + '/';
 
@@ -22,12 +22,12 @@ var config = {
   },
 
   resolve: {
-    extensions: ["", ".js", ".jsx"],
+    extensions: ['', '.js', '.jsx'],
     alias: {
-      'components': __dirname + '/src/components/',
-      'pages': __dirname + '/src/pages/',
-      'styles': __dirname + '/src/styles/',
-      'utils': __dirname + '/src/utils/'
+      'components': path.join(__dirname, '/src/components/'),
+      'pages': path.join(__dirname, '/src/pages/'),
+      'styles': path.join(__dirname, '/src/styles/'),
+      'utils': path.join(__dirname, '/src/utils/')
     }
   },
 
@@ -42,33 +42,35 @@ var config = {
   },
 
   module: {
-    preLoaders: [{
-      test: /\.js$|\.jsx$/,
-      exclude: /node_modules/,
-      loader: 'jsxhint'
-    }],
+    preLoaders: [
+      {
+        test: /\.js$|\.jsx$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      }
+    ],
 
     loaders: [
       {
         test: /\.jsx$/,
-        exclude: [node_modules_dir],
+        exclude: [nodeModulesDir],
         loaders: ['react-hot', 'babel-loader']
       }, {
         test: /\.js$/,
-        exclude: [node_modules_dir],
+        exclude: [nodeModulesDir],
         loaders: ['babel-loader']
       }, {
         test: /\.less$/,
         loader: 'style-loader!css-loader!less-loader'
       }, {
         test: /\.css$/,
-        loader: "style-loader!css-loader"
+        loader: 'style-loader!css-loader'
       }, {
         test: /\.(png|jpg|woff|ttf|eot|svg|woff2)$/,
-        loader: "url-loader?limit=100000"
+        loader: 'url-loader?limit=100000'
       }, {
         test: /\.jpg$/,
-        loader: "file-loader"
+        loader: 'file-loader'
       }
     ]
   },
@@ -97,7 +99,7 @@ var config = {
     },
     historyApiFallback: true,
     proxy: {
-      "*": "http://janus-edge.vtex.com.br/"
+      '*': 'http://janus-edge.vtex.com.br/'
     }
   }
 };
