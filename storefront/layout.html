@@ -40,6 +40,19 @@
   {% script reactLocaleUrl %}
 
   {% script 'storefront-react.js@vtex.storefront-react' %}
+
+  <script>
+  // TODO - extract "dump resources" from "dump scripts"
+  window._storefront = {};
+  window._storefront.ShopStore = {
+    locale: "{{ culture.code }}",
+    language: "{{ culture.language }}",
+    countryCode: "{{ culture.country }}",
+    currency: "{{ culture.currency.code }}",
+    accountName: "{{ account.name }}"
+  };
+  </script>
+
   {% script 'storefront-flux.js@vtex.storefront-flux' %}
 
   {% dump scripts %}
@@ -59,13 +72,7 @@
         developer: {{ user.roles.developer }}
       }
     };
-    window.storefront.ShopStore = {
-      locale: "{{ culture.code }}",
-      language: "{{ culture.language }}",
-      countryCode: "{{ culture.country }}",
-      currency: "{{ culture.currency.code }}",
-      accountName: "{{ account.name }}"
-    };
+    window.storefront.ShopStore = window._storefront.ShopStore;
     window.storefront.init(); // boom!
   </script>
 </body>
