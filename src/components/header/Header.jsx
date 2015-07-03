@@ -12,12 +12,6 @@ let Header = React.createClass({
               <Link to="home">
                 <MenuItem>Home</MenuItem>
               </Link>
-              <Link to="comidas">
-                <MenuItem>Comidas</MenuItem>
-              </Link>
-              <Link to="bebidas">
-                <MenuItem>Bebidas</MenuItem>
-              </Link>
             </DropdownButton>
           </Nav>
         </Navbar>

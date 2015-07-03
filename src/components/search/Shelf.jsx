@@ -1,7 +1,8 @@
 import storefront from 'storefront';
 import React from 'react';
-import connectToStores from '../../utils/connectToStores';
+import connectToStores from 'utils/connectToStores';
 import ShelfItem from './ShelfItem';
+import compact from 'lodash/array/compact';
 
 let Shelf = React.createClass({
   statics: {
@@ -27,8 +28,8 @@ let Shelf = React.createClass({
 
     const search = this.getSearch();
 
-    if (search && search.results) {
-      products = search.results.map( slug => ProductStore.get(slug) );
+    if (search && search.results && search.results.length > 0) {
+      products = compact(search.results.map( slug => ProductStore.get(slug) ));
       shelfItems = products.map( product =>
         <ShelfItem product={product}
           key={product.slug}
