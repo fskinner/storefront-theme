@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 
 let Checkout = React.createClass({
   render() {

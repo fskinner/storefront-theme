@@ -1,21 +1,17 @@
-import React, { PropTypes } from 'react';
-import connectToStores from '../../utils/connectToStores';
+import storefront from 'storefront';
+import React from 'react';
+import connectToStores from 'utils/connectToStores';
 import ShelfItem from './ShelfItem';
-import _matches from 'lodash/utility/matches';
-import { PureRenderMixin } from 'react/lib/ReactComponentWithPureRenderMixin';
+import compact from 'lodash/array/compact';
+
+const stores = [
+  storefront.flux.stores.ProductStore,
+  storefront.flux.stores.SearchStore,
+  storefront.flux.stores.ShopStore,
+  storefront.flux.stores.CartStore
+];
 
 let Shelf = React.createClass({
-  statics: {
-    getStores() {
-      return [
-        storefront.flux.stores.ProductStore,
-        storefront.flux.stores.SearchStore,
-        storefront.flux.stores.ShopStore,
-        storefront.flux.stores.CartStore
-      ];
-    }
-  },
-
   getSearch() {
     return this.props.SearchStore.get(this.props.search.id);
   },
@@ -28,8 +24,8 @@ let Shelf = React.createClass({
 
     const search = this.getSearch();
 
-    if (search && search.results) {
-      products = search.results.map( slug => ProductStore.get(slug) );
+    if (search && search.results && search.results.length > 0) {
+      products = compact(search.results.map( slug => ProductStore.get(slug) ));
       shelfItems = products.map( product =>
         <ShelfItem product={product}
           key={product.slug}
@@ -52,4 +48,4 @@ let Shelf = React.createClass({
   }
 });
 
-export default connectToStores(Shelf);
+export default connectToStores(stores)(Shelf);

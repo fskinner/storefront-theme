@@ -1,15 +1,12 @@
+import storefront from 'storefront';
 import React from 'react';
 import connectToStores from 'utils/connectToStores.js';
 
-let Success = React.createClass({
-  statics: {
-    getStores() {
-      return [
-        storefront.flux.stores.CartStore
-      ];
-    }
-  },
+const stores = [
+  storefront.flux.stores.CartStore
+];
 
+let Success = React.createClass({
   render() {
     let orderForm = this.props.CartStore.get('orderForm');
     console.log(orderForm.items);
@@ -27,4 +24,4 @@ let Success = React.createClass({
   }
 });
 
-export default connectToStores(Success);
+export default connectToStores(stores)(Success);

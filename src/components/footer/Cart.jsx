@@ -1,23 +1,19 @@
-import React, { PropTypes } from 'react';
-import connectToStores from '../../utils/connectToStores';
-import _isEmpty from 'lodash/lang/isEmpty';
+import storefront from 'storefront';
+import React from 'react';
+import connectToStores from 'utils/connectToStores';
 import Minicart from '../cart/Minicart';
-import Style from './cart.less';
+import Style from './cart.less'; //eslint-disable-line
+
+const stores = [
+  storefront.flux.stores.CartStore,
+  storefront.flux.stores.ShopStore
+];
 
 let Cart = React.createClass({
   getInitialState() {
     return {
       minicartIsOpen: false
     };
-  },
-
-  statics: {
-    getStores() {
-      return [
-        storefront.flux.stores.CartStore,
-        storefront.flux.stores.ShopStore
-      ];
-    }
   },
 
   componentWillMount() {
@@ -43,7 +39,7 @@ let Cart = React.createClass({
     storefront.flux.actions.CartActions.removeItems(orderForm.orderFormId, [item]);
   },
 
-  handleMinicartClick(event) {
+  handleMinicartClick() {
     this.setState({minicartIsOpen: !this.state.minicartIsOpen});
   },
 
@@ -54,13 +50,13 @@ let Cart = React.createClass({
 
     let showMiniCart;
     if (cartLength) {
-      showMiniCart = <Minicart  items={orderForm.items} value={orderForm.value}
-                                changeQty={this.changeQty} clearCart={this.clearCart}
-                                removeItem={this.removeItem} updateLoading={updateLoading}
-                                currency={this.props.ShopStore.get('currency')} />;
+      showMiniCart = <Minicart items={orderForm.items} value={orderForm.value}
+                               changeQty={this.changeQty} clearCart={this.clearCart}
+                               removeItem={this.removeItem} updateLoading={updateLoading}
+                               currency={this.props.ShopStore.get('currency')} />;
     }
 
-    let minicartClass = "ds-cart";
+    let minicartClass = 'ds-cart';
     if (this.state.minicartIsOpen) {
       minicartClass += ' ds-minicart-active';
     }
@@ -81,4 +77,4 @@ let Cart = React.createClass({
 
 });
 
-export default connectToStores(Cart);
+export default connectToStores(stores)(Cart);

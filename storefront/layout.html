@@ -7,7 +7,6 @@
   <meta name="country" content="{{ culture.country }}">
   <meta name="currency" content="{{ culture.currency }}">
   <title>{{ account.name }}</title>
-  <link rel="shortcut icon" href="/assets/@vtex.dreamstore-theme/favicon.ico">
   {% lib 'twitter-bootstrap' 'css/bootstrap.min.css' %}
   {% lib 'font-awesome' 'css/font-awesome.min.css' %}
   {% dump styles %}
@@ -39,8 +38,21 @@
   {% capture reactLocaleUrl %}//io.vtex.com.br/front-libs/react-intl/1.2.0/locale-data/{{ culture.language | split: "-" | first }}.js{% endcapture %}
   {% script reactLocaleUrl %}
 
-  {% capture storefrontReactUrl %}//{{account.name}}.beta.myvtex.com/assets/@vtex.storefront-react/storefront-react.js{% endcapture %}
-  {% script storefrontReactUrl %}
+  {% script 'storefront-react.js@vtex.storefront-react' %}
+
+  <script>
+  // TODO - extract "dump resources" from "dump scripts"
+  window._storefront = {};
+  window._storefront.ShopStore = {
+    locale: "{{ culture.code }}",
+    language: "{{ culture.language }}",
+    countryCode: "{{ culture.country }}",
+    currency: "{{ culture.currency.code }}",
+    accountName: "{{ account.name }}"
+  };
+  </script>
+
+  {% script 'storefront-flux.js@vtex.storefront-flux' %}
 
   {% dump scripts %}
 
@@ -59,13 +71,7 @@
         developer: {{ user.roles.developer }}
       }
     };
-    window.storefront.ShopStore = {
-      locale: "{{ culture.code }}",
-      language: "{{ culture.language }}",
-      countryCode: "{{ culture.country }}",
-      currency: "{{ culture.currency.code }}",
-      accountName: "{{ account.name }}"
-    };
+    window.storefront.ShopStore = window._storefront.ShopStore;
     window.storefront.init(); // boom!
   </script>
 </body>

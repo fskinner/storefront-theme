@@ -1,34 +1,23 @@
-import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
+import storefront from 'storefront';
+import React from 'react';
 import connectToStores from '../utils/connectToStores.js';
 import Shelf from '../components/search/Shelf';
 import { PureRenderMixin } from 'react/lib/ReactComponentWithPureRenderMixin';
 
 let config1 = {
-  title: 'Hambúrgueres',
+  title: 'All',
   search: {
-    id: 'home-shelf-1',
-    category: 'menu/comidas'
-  }
-};
-let config2 = {
-  title: 'Bebidas',
-  search: {
-    id: 'home-shelf-2',
-    category: 'menu/bebidas',
+    id: 'home-shelf-1'
   }
 };
 
+const stores = [
+  storefront.flux.stores.SearchStore,
+  storefront.flux.stores.ShopStore
+];
+
 let Home = React.createClass({
   mixins: [ PureRenderMixin ],
-  statics: {
-    getStores() {
-      return [
-        storefront.flux.stores.SearchStore,
-        storefront.flux.stores.ShopStore
-      ];
-    }
-  },
 
   componentDidMount() {
     const accountName = this.props.ShopStore.get('accountName');
@@ -38,21 +27,15 @@ let Home = React.createClass({
       config1.search.accountName = accountName;
       storefront.flux.actions.SearchActions.requestSearch(config1.search);
     }
-    const search2 = this.props.SearchStore.get(config2.search.id);
-    if (!search2 || !search2.results) {
-      config2.search.accountName = accountName;
-      storefront.flux.actions.SearchActions.requestSearch(config2.search);
-    }
   },
 
   render() {
     return (
       <div>
         <Shelf {...config1} />
-        <Shelf {...config2} />
       </div>
     );
   }
 });
 
-export default connectToStores(Home);
+export default connectToStores(stores)(Home);

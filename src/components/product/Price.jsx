@@ -5,11 +5,11 @@ let ProductPrice = React.createClass({
   render() {
     let sku = this.props.product.items[0];
     let hasListPrice = sku.sellers[0].offer.listPrice > sku.sellers[0].offer.price;
-    let discountValue = sku.sellers[0].offer.listPrice - sku.sellers[0].offer.price;
+    let discount = sku.sellers[0].offer.listPrice - sku.sellers[0].offer.price;
     let discountPercent = discount * 100 / sku.sellers[0].offer.listPrice;
     discountPercent = discountPercent.split('.')[0];
 
-    let listPrice, discount;
+    let listPrice;
     if (hasListPrice) {
       listPrice = (
         <tr className="ds-product-list-price-row" key="listPrice">

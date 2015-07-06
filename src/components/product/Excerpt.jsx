@@ -6,7 +6,7 @@ let ProductExcerpt = React.createClass({
 
     let description;
     if (product.description.size > 300) {
-      let excerpt = product.description.slice(0,400);
+      let excerpt = product.description.slice(0, 400);
       description = (
         <div>
           { excerpt }
