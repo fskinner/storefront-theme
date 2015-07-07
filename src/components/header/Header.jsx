@@ -1,6 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Navbar, Nav, DropdownButton, MenuItem } from 'react-bootstrap';
+import Style from './header.less';
+import {
+  Navbar, Nav,
+  DropdownButton,
+  MenuItem,
+  Grid, Row, Col
+} from 'react-bootstrap';
 
 let Header = React.createClass({
   render() {
@@ -11,6 +17,12 @@ let Header = React.createClass({
             <DropdownButton title='Menu'>
               <Link to="home">
                 <MenuItem>Home</MenuItem>
+              </Link>
+              <Link to="comidas">
+                <MenuItem>Comidas</MenuItem>
+              </Link>
+              <Link to="bebidas">
+                <MenuItem>Bebidas</MenuItem>
               </Link>
             </DropdownButton>
           </Nav>
