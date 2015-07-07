@@ -9,7 +9,7 @@ let Header = React.createClass({
   mixins: [ Navigation ],
   render() {
     return (
-      <Navbar brand='Comuna' inverse toggleNavKey={0}>
+      <Navbar staticTop={true} brand='Comuna' inverse toggleNavKey={0}>
         <Nav right eventKey={0}> {/* This is the eventKey referenced */}
           <NavItem eventKey='1' onClick={() => this.transitionTo('home')}>Home</NavItem>
         </Nav>
