@@ -60,11 +60,11 @@ module.exports = {
       {
         test: /\.jsx$/,
         exclude: [nodeModulesDir],
-        loaders: hot ? ['react-hot', 'babel-loader'] : ['babel-loader']
+        loaders: hot ? ['react-hot', 'babel-loader?stage=1'] : ['babel-loader?stage=1']
       }, {
         test: /\.js$/,
         exclude: [nodeModulesDir],
-        loaders: ['babel-loader']
+        loaders: ['babel-loader?stage=1']
       }, {
         test: /\.less$/,
         loader: 'style-loader!css-loader!less-loader'
