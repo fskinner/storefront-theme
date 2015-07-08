@@ -36,7 +36,7 @@ let Shelf = React.createClass({
     }
 
     return (
-      <div className="ds-main container-fluid">
+      <div className="ds-main container-fluid" data-storefront="Shelf@vtex.storefront-theme">
         <div className="row">
           <div className="col-md-12">
             <h3 className="ds-category-name">{this.props.title}</h3>
