@@ -30,8 +30,11 @@ let Home = React.createClass({
   },
 
   render() {
+    let Banner = storefront.import('Banner');
+
     return (
       <div>
+        <Banner route='home' id='banner-home'/>
         <Shelf {...config1} />
       </div>
     );

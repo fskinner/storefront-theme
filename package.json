@@ -19,14 +19,12 @@
     "react-hot-loader": "^1.2.7",
     "style-loader": "^0.9.0",
     "url-loader": "^0.5.5",
-    "vtex": "^0.4.0",
-    "webpack": "^1.8.11",
-    "webpack-dev-server": "^1.8.0"
+    "webpack": "^1.8.11"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "prereleasy": "webpack --config webpack.dist.config.js",
+    "start": "webpack & vtex watch",
+    "prereleasy": "NODE_ENV=production webpack",
     "postreleasy": "vtex publish"
   },
   "homepage": "https://github.com/vtex-apps/storefront-theme",

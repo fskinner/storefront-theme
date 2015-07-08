@@ -3,13 +3,19 @@ var path = require('path');
 var nodeModulesDir = path.join(__dirname, 'node_modules');
 var pkg = require('./package.json');
 var publicPath = '/assets/@vtex.' + pkg.name + '/';
+var production = process.env.NODE_ENV === 'production';
+var hot = process.env.NODE_ENV === 'hot';
 
-var config = {
+module.exports = {
   devtool: 'sourcemap',
 
-  entry: [
+  watch: production ? false : true,
+
+  entry: hot ? [
     'webpack-dev-server/client?http://0.0.0.0:3000',
     'webpack/hot/only-dev-server',
+    './src/' + pkg.name + '.jsx'
+  ] : [
     './src/' + pkg.name + '.jsx'
   ],
 
@@ -54,7 +60,7 @@ var config = {
       {
         test: /\.jsx$/,
         exclude: [nodeModulesDir],
-        loaders: ['react-hot', 'babel-loader']
+        loaders: hot ? ['react-hot', 'babel-loader'] : ['babel-loader']
       }, {
         test: /\.js$/,
         exclude: [nodeModulesDir],
@@ -75,9 +81,12 @@ var config = {
     ]
   },
 
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
+  plugins: production ? [
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.AggressiveMergingPlugin()
+  ] : [],
 
   quiet: false,
 
@@ -103,5 +112,3 @@ var config = {
     }
   }
 };
-
-module.exports = config;

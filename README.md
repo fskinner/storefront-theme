@@ -39,44 +39,24 @@ vtex_sandbox|vtex/minhasandbox=storefront-theme
 
 ### 3 - Iniciando o ambiente de desenvolvimento
 
-Em um terminal no diretório deste repositório, inicie o servidor de desenvolvimento passando o nome da **sandbox** como primeiro parâmetro.
-
-Isto irá criar um servidor de desenvolvimento local em `sualoja.local.myvtex.com:3000`.
+Em um terminal no diretório deste repositório, inicie os comandos `webpack -w`, e `vtex watch` passando o nome da **sandbox** como primeiro parâmetro.
 
 ```
-npm start minhasandbox
+webpack -w & vtex watch minhasandbox
 ```
+
+(O comando `webpack` irá rodar em background. Use o comando `fg` para trazê-lo ao *foreground* e `ctrl-c` para terminá-lo.)
 
 Finalmente, acesse a URL de desenvolvimento:
 
-http://sualoja.local.myvtex.com:3000
+http://sualoja.beta.myvtex.com
 
 **Importante:** Substitua `sualoja` pelo account name de sua loja.
 
 ## FAQ
-
-### Por que eu preciso acessar `sualoja.local.myvtex.com` ao invés de `localhost`?
-
-O Storefront precisa saber em qual loja você deseja entrar.
-
-Para isso, ele se baseia no nome `sualoja` presente na URL.
-
-O endereço `*.local.myvtex.com` tem uma regra de DNS que aponta para sua máquina (`127.0.0.1`), então o resultado é o mesmo que acessar `localhost`.
-
-### Como funciona o servidor em `localhost:3000`
-
-Todas as requisições passam primeiro pelo servidor de desenvolvimento local (WebpackDevServer).
-
-Desta forma, podemos usar ferramentas avançadas como `react-hot-loader`, que te permitem recarregar os componentes React sem fazer um refresh da página.
-
-Se este servidor não encontrar o arquivo ou rota desejada, ele simplesmente passa o pedido adiante para a VTEX, onde são processados os arquivos de configuração, rotas e templates Liquid.
 
 ### Como desativar a minifĩcação de arquivos
 
 Adicione no fim da URL `?bundle=false`, por ex:
 
 > [http://dreamstore.beta.myvtex.com/?bundle=false](http://dreamstore.beta.myvtex.com/?bundle=false)
-
-### Por que não usamos o comando `vtex watch`?
-
-Esse tema utiliza o [webpack-dev-server](http://webpack.github.io/) para processar arquivos Javascript. Por isso, estamos usando o comando `npm start` ao invés de simplesmente usar diretamente o `vtex watch`. Não se preocupe - o toolbelt vtex é chamado por este comando internamente.
