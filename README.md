@@ -6,6 +6,7 @@ Tema default para novas lojas VTEX.
 
 - node ([Linux](https://gist.github.com/isaacs/579814), [Mac and Windows](https://nodejs.org/download/))
 - [git](http://git-scm.com/)
+- `npm install -g vtex releasy webpack`
 
 ## Primeiros passos
 
