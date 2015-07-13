@@ -30,7 +30,7 @@ let ProductSkuSelector = React.createClass({
               src={sku.images[0].src}
               accountName={this.props.accountName}
               alt="" title=""
-              height="65" width="65"/>
+              height={65} width={65}/>
           </div>
           <div className="col-md-7">
             <b>{ sku.name }</b>

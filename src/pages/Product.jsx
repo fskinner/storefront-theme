@@ -73,7 +73,7 @@ let Product = React.createClass({
               src={ sku.images[0].src }
               accountName={ ShopStore.get('accountName') }
               alt={ product.name } title={ product.name }
-              height="490" width="490"/>
+              height={490} width={490}/>
           </div>
           <div className="ds-product-main-info col-md-6">
             <ProductTitle product={product} />
