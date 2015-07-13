@@ -4,7 +4,7 @@
   "version": "0.3.0",
   "vendor": "vtex",
   "dependencies": {
-    "vtex.storefront-flux": "0.2.1",
+    "vtex.storefront-flux": "0.2.4",
     "vtex.storefront-react": "0.3.0"
   },
   "schemas": {
