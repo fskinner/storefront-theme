@@ -3,6 +3,7 @@ import React from 'react';
 import Img from '../Img';
 import { FormattedNumber } from 'react-intl';
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router';
 
 let ShelfItem = React.createClass({
 
@@ -37,7 +38,9 @@ let ShelfItem = React.createClass({
         </div>
         <div className="full-length ds-product-info container">
           <h3 className="ds-shelf-item-name" title={ name }>
+            <Link to="product" params={{product: product.slug }}>
             { name }
+            </Link>
           </h3>
           <p>{ product.description }</p>
           <div className="row ds-product-bottom">
