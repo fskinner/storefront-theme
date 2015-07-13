@@ -40,9 +40,6 @@ let Footer = React.createClass({
     return (
       <div className="ds-footer">
         <span className="ds-value">{ valueComponent }</span>
-        <Link to="checkout" className="pull-right">
-          <Button>Pagar</Button>
-        </Link>
       </div>
     );
   }
