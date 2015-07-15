@@ -1,6 +1,6 @@
 {
-  "name": "storefront-theme",
-  "description": "Default Storefront theme for new VTEX stores",
+  "name": "storefront-theme-raw",
+  "description": "Raw Storefront theme for new VTEX stores",
   "version": null,
   "private": true,
   "devDependencies": {

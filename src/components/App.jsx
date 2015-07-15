@@ -2,8 +2,6 @@ import React from 'react';
 import storefront from 'storefront';
 import DocumentTitle from 'react-document-title';
 import { RouteHandler, State } from 'react-router';
-import Header from './header/Header';
-import Footer from './footer/Footer';
 import { IntlMixin } from 'react-intl';
 
 let App = React.createClass({
@@ -24,11 +22,9 @@ let App = React.createClass({
     return (
       <DocumentTitle title='Dreamstore'>
         <div className={'ds-' + accountName}>
-          <Header />
           <div className="page-perspective">
             <RouteHandler key={this.getHandlerKey()}/>
           </div>
-          <Footer />
         </div>
       </DocumentTitle>
     );
