@@ -1,7 +1,7 @@
 {
   "name": "storefront-theme-raw",
   "title": "Raw Storefront theme",
-  "version": "0.1.1-beta",
+  "version": "0.1.2-beta",
   "vendor": "vtex",
   "dependencies": {
     "vtex.storefront-flux": "0.2.4",
