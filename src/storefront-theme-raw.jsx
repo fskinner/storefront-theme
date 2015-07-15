@@ -11,7 +11,7 @@ require('styles/style.less');
 if (!window.Intl) {
   window.Intl = require('intl');
 }
-const appSuffix = '@vtex.storefront-theme';
+const appSuffix = '@vtex.storefront-theme-raw';
 
 storefront.export('App', App);
 storefront.export('Img' + appSuffix, Img);
