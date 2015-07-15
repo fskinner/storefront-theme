@@ -10,6 +10,6 @@
     }
   },
   "assets": [
-    "storefront-theme.js"
+    "storefront-theme-raw.js"
   ]
 }
